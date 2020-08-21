@@ -7,6 +7,9 @@ import * as dotenv from 'dotenv';
 // Connection
 import { connect } from './connect';
 
+// Routes
+import { routes } from './routes';
+
 dotenv.config();
 
 const app: Application = express();
@@ -27,3 +30,5 @@ app.listen(port, () => {
 const db = process.env.DB_URI || 'mongodb://localhost:27017/express-live';
 
 connect({ db });
+
+routes({ app });
